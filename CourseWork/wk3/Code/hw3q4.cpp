@@ -1,12 +1,19 @@
 #include <iostream>
 using namespace std;
 
-int main(){
     const int FLOOR_ROUND = 1;
     const int CEILING_ROUND = 2;
     const int ROUND = 3;
+    const int FIRST = 1;
+    const int SECOND = 2;
+    const int THIRD = 3;
+    const double HALF = 0.5;
+
+int main(){
+
     float user_num;
     int user_choice;
+
     cout<<"Please enter a Real number:"<<endl;
     cin>>user_num;
     cout<<"Choose your rounding method:"<<endl;
@@ -15,22 +22,26 @@ int main(){
     cout<<"3. Round to the nearest whole number"<<endl;
     cin>>user_choice;
 
-    if (user_choice == 1 || user_choice == 2 || user_choice == 3){
+    if (user_choice == FIRST || user_choice == SECOND || user_choice == THIRD){
+
         int round_num;
+
+        //include default and eliminate if/else logic
+
         switch(user_choice){
             case 1:
                 round_num = user_num;
                 break;
             case 2:
-                round_num = (user_num + 0.5);
+                round_num = (user_num + HALF);
                 break;
             case 3:
                 int whole_num = user_num;
-                if ((user_num - whole_num) < 0.5){
+                if ((user_num - whole_num) < HALF){
                     round_num = user_num;
                 }
                 else
-                    round_num = (user_num + 0.5);
+                    round_num = (user_num + HALF);
                 break;
         }
         cout<<round_num<<endl;
@@ -38,5 +49,7 @@ int main(){
     else{
         cout<<"Sorry, that was not an option."<<endl;
     }
+
+
     return 0;
 }
