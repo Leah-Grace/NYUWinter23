@@ -11,45 +11,47 @@ using namespace std;
 
 int main(){
 
-    float user_num;
-    int user_choice;
+    float userNum;
+    int userChoice;
 
     cout<<"Please enter a Real number:"<<endl;
-    cin>>user_num;
+    cin>>userNum;
     cout<<"Choose your rounding method:"<<endl;
     cout<<"1. Floor round"<<endl;
     cout<<"2. Ceiling round"<<endl;
     cout<<"3. Round to the nearest whole number"<<endl;
-    cin>>user_choice;
+    cin>>userChoice;
 
-    if (user_choice == FIRST || user_choice == SECOND || user_choice == THIRD){
+        int roundNum;
 
-        int round_num;
-
-        //include default and eliminate if/else logic
-
-        switch(user_choice){
+        switch(userChoice){
             case 1:
-                round_num = user_num;
+            {
+                //store float as integer and 
+                roundNum = userNum;
                 break;
+            }
             case 2:
-                round_num = (user_num + HALF);
+            {
+                roundNum = (userNum + HALF);
                 break;
+            }
             case 3:
-                int whole_num = user_num;
-                if ((user_num - whole_num) < HALF){
-                    round_num = user_num;
+            {
+                int wholeNum = userNum;
+                if ((userNum - wholeNum) < HALF){
+                    roundNum = userNum;
                 }
-                else
-                    round_num = (user_num + HALF);
+                else {
+                    roundNum = (userNum + HALF);
+                }    
                 break;
+            }
+            default:
+                cout<<"Sorry, that was not an option."<<endl;
+                return 0;
         }
-        cout<<round_num<<endl;
-    }
-    else{
-        cout<<"Sorry, that was not an option."<<endl;
-    }
-
+        cout<<roundNum<<endl;
 
     return 0;
 }
