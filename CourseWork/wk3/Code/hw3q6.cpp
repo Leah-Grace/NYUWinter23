@@ -1,10 +1,13 @@
 //This program calculates the cost of a long-distance call
 //The user is prompted to input the day of the week, the time the call started and the length of the call in minutes
 
-
 #include <iostream>
 #include <string>
 using namespace std;
+
+const float WEEKDAY_RATE = 0.4;
+const float WEEKNIGHT_RATE = 0.25;
+const float WEEKEND_RATE = 0.15;
 
 int main(){
 
@@ -12,9 +15,6 @@ int main(){
     string day;
     int start, length, minutes;
     float total_cost;
-    const float RATE_ONE = 0.4;
-    const float RATE_TWO = 0.25;
-    const float RATE_THREE = 0.15;
 
     cout<<"Please input the day of the week: ";
     cin>>day;
@@ -22,18 +22,18 @@ int main(){
     cin>>start >> colon >> minutes;
     cout<<"Please input the length of time of the call in minutes: ";
     cin>>length;
-    
+
     //Evaluate day and start time to determine with rate to calculate cost
     if (day == "Mo" || day == "Tu" || day == "We" || day == "Th" || day == "Fr"){
         if (start >= 8 && start <= 18){
-            total_cost = length * RATE_ONE;
+            total_cost = length * WEEKDAY_RATE;
         }
         else{
-            total_cost = length * RATE_TWO;
+            total_cost = length * WEEKNIGHT_RATE;
         }
     }
     else if (day == "Sa" || day == "Su"){
-        total_cost = length * RATE_THREE;
+        total_cost = length * WEEKEND_RATE;
     }
     else{
 
