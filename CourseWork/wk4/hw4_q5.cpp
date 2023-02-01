@@ -11,40 +11,47 @@ int main(){
     cout<<"Enter a positive integer"<<endl;
     cin>>userInteger;
 
-    int rowCounter = 1;
+    int rowCounter = userInteger;
     int starCounter = userInteger;
+    int totalRows = userInteger * 2;
 
+    cout<<totalRows<<" "<<starCounter<<" "<<rowCounter<<" "<<userInteger<<" "<<endl;
 
-    for (rowCounter; rowCounter <= userInteger; rowCounter++){
+    for(totalRows; totalRows > 0; totalRows--){
 
-        for(starCounter; starCounter > 0; starCounter--){
-            cout<<"*";
+        if(totalRows > userInteger){
+            
+            while (starCounter > 0){
+                cout<<"*";
+
+                starCounter--;
+            }
+            cout<<endl;
+            rowCounter--;
+            starCounter = rowCounter;
+
+        } else{
+
+            rowCounter++;
+
+            int bottomRowCounter = rowCounter;
+
+            for (starCounter; starCounter < rowCounter; starCounter++){
+
+                for (bottomRowCounter; bottomRowCounter > 0; bottomRowCounter--){
+
+                    cout<<"*";
+
+                }
+
+                cout<<endl;
+           
+            }
+
         }
-
-        cout<<endl;
-
-        starCounter = userInteger - rowCounter;
-
+        
     }
 
-
-//At this point the 
-//row counter is equal to the userInput+1
-//starCounter is equal to 0
-//UserInput is unchanged
-/*
-    for (rowCounter; rowCounter >= 0; rowCounter--){
-
-        for(starCounter; starCounter >= 0; starCounter++){
-            cout<<"*";
-        }
-
-        cout<<endl;
-
-        starCounter = userInteger - rowCounter;
-
-    }
-
-*/
     return 0;
+    
 }
