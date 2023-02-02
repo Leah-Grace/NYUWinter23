@@ -7,77 +7,56 @@ using namespace std;
 
 
 const int EVEN_INTEGER_DIVISOR = 2;
+const int DECIMAL_DIVISOR = 10;
 
 int main(){
 
-    int userInteger; // Must remain unchanged
+    int userInteger;
 
     cout<<"Enter a positive integer"<<endl;
     cin>>userInteger;
 
-
-    //for each digit (for loop where x increments from 1 to userInteger)
-    //find the number of digits in the number (use mod % 10 ?)
-    //cycle through the digits (Mod % 10 ?)
-    //if the digit is even, push to the string
-    //if the digit is odd push to odd string
-    //compare the length of the two strings (best not to use .length)
-    //print the number if there are more even digits than odd digits
-
     int counter = 1;
-    for (counter; counter < userInteger; counter++){ //iterate from 1 to n
+    for (counter; counter <= userInteger; counter++){ //iterate from 1 to n with counter
 
-
-        //count digits
-        int oddDigits = 0; 
-        int evenDigits = 0;
-
+        int oddDigitsCount = 0; 
+        int evenDigitsCount = 0;
 
         //Evaluate the current integer from 1 - n using value from counter
         int currentInteger = counter;
 
-        //Iterate over the digits in the current integer from 1 - n 
+        //Iterate over the digits in the current integer with a while loop
+        //At the beginning of each while loop the currentInteger will be the same value as the current integer
+        //with each iteration of the while loop the least signifiant digit of the current integer will be removed
+        //eventually the integer will reach 0 when the most significant digit is divided by 10 
         while(currentInteger > 0) {
 
-           // cout<<"current integer "<<currentInteger<<endl;
+            //isolate the lest significant digit of the current integer with % 10
+            int currentDigit = currentInteger % DECIMAL_DIVISOR;
 
-            //find the current digit with % 10
-            int currentDigit = currentInteger % 10;
-
-         //   cout<<"current Digit "<<currentDigit<<endl;
-
-            //evaluate the current digit for even or odd
-            if (currentDigit % 2 == 0){
-                evenDigits++;
+            //evaluate the current digit as even or odd and add to count
+            if (currentDigit % EVEN_INTEGER_DIVISOR == 0){
+                evenDigitsCount++;
             } else{
-                oddDigits++;
+                oddDigitsCount++;
             }
 
-           // cout<<"Evaluate for even or odd "<<currentDigit<<endl;
-           // cout<<"Progress while loop with "<<currentInteger / 10<<endl;
-
-            //remove the least significant digit of the current integer
-            currentInteger /= 10;
+            //remove the least significant digit of the current integer by dividing the integer by 10
+            currentInteger /= DECIMAL_DIVISOR;
 
         }
 
         // compare the count of even and odd digits
         // if there are more even digits than odd digits, print the original integer
-        if (evenDigits > oddDigits){
-            cout<<counter<<" has more even digits "<<endl;
+        if (evenDigitsCount > oddDigitsCount){
+            cout<<counter<<endl;
         }
 
-        //reassign even/odd counters back to 0
-        evenDigits = 0;
-        oddDigits = 0;
-
-       // current integer is 0 and must change to counter
+        //reassign even/odd counters back to 0 to evaluate the next value of the counter
+        evenDigitsCount = 0;
+        oddDigitsCount = 0;
 
     }
-
-    
-
-
 
     return 0;
 
