@@ -57,7 +57,7 @@ int main(){
 
     limitFour = 4;
 
-    if (tempDecimal > 5){
+    if (tempDecimal >= 5){
         cout<<"V";
         tempDecimal -= 5;
     } 
@@ -66,6 +66,7 @@ int main(){
     while (tempDecimal >= 1 && limitFour > 0){
         cout<<"I";
         tempDecimal -= 1;
+        limitFour--;
     }
 
     //End output
