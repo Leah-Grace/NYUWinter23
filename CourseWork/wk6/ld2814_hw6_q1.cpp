@@ -21,22 +21,22 @@ using namespace std;
 
 int fib(int n){
 
-    //int nth = 1;
-    //int first = 1;
     int counter = 1;
     int fromOne = 1;
     int fromZero = 0;
     int fib = 1;
 
+        if (n == 0){
+            return 0;
+        }
+        
         while ( counter <= n - 1){
 
             if (counter % 2 == 1){
-
-                fromZero += fromOne; // 0+1  1+1 
+                fromZero += fromOne;
                 fib = fromZero;
             } else {
-                
-                fromOne += fromZero; // 1+1 
+                fromOne += fromZero;
                 fib = fromOne;
             }
             
@@ -51,14 +51,10 @@ int main(){
 
     int nthSequence = 0;
 
-    while(nthSequence != -1){
-
     cout<<"Please enter a positive integer : "<<endl;
     cin>>nthSequence;
 
     cout<<fib(nthSequence)<<endl;
-    }
-
 
     return 0;
 }
