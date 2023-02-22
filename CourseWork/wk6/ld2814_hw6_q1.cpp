@@ -24,7 +24,7 @@ int fib(int n){
     int counter = 1;
     int fromOne = 1;
     int fromZero = 0;
-    int fib = 1;
+    int fibNth = 1;
 
         if (n == 0){
             return 0;
@@ -34,17 +34,17 @@ int fib(int n){
 
             if (counter % 2 == 1){
                 fromZero += fromOne;
-                fib = fromZero;
+                fibNth = fromZero;
             } else {
                 fromOne += fromZero;
-                fib = fromOne;
+                fibNth = fromOne;
             }
             
             counter++;
 
         }
 
-        return fib;
+        return fibNth;
 }
 
 int main(){
