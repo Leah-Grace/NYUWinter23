@@ -4,6 +4,23 @@ using namespace std;
 
 const string TAB = "\t";
 
+int printMonthCalendar(int numOfDays, int startingDay);
+bool leapYear(int year);
+void printYearCalendar(int year, int startingDay);
+
+
+int main() {
+    int startingDay;
+    int year;
+
+    cout<<"What is the starting date position (1 for Monday, 2 for Tuesday, etc.)?"<<endl;
+    cin>>startingDay;
+    cout<<"What is the year?"<<endl;
+    cin>>year;
+    printYearCalendar(year, startingDay);
+}
+
+
 // Part A
 int printMonthCalendar(int numOfDays, int startingDay) {
     cout<<"Mon"<<TAB<<"Tue"<<TAB<<"Wed"<<TAB<<"Thr"<<TAB<<"Fri"<<TAB<<"Sat"<<TAB<<"Sun"<<endl;
@@ -97,17 +114,7 @@ void printYearCalendar(int year, int startingDay) {
                 break;
         }
         startingDay = printMonthCalendar(numOfDays, startingDay);
-        cout<<endl;
+       // cout<<endl;
     }
 }
 
-int main() {
-    int startingDay;
-    int year;
-
-    cout<<"What is the starting date position (1 for Monday, 2 for Tuesday, etc.)?"<<endl;
-    cin>>startingDay;
-    cout<<"What is the year?"<<endl;
-    cin>>year;
-    printYearCalendar(year, startingDay);
-}
