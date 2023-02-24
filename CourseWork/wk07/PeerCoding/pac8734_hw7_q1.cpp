@@ -114,7 +114,10 @@ void printYearCalendar(int year, int startingDay) {
                 break;
         }
         startingDay = printMonthCalendar(numOfDays, startingDay);
-       // cout<<endl;
+        if (startingDay > 7 ){
+            startingDay = (startingDay % 7);
+        }
+        cout<<endl;
     }
 }
 
