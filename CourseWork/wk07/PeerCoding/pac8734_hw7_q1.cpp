@@ -27,8 +27,8 @@ int printMonthCalendar(int numOfDays, int startingDay) {
     int dayOfWeek = 1;
     int endDate = 0;
     int nextMonthStartDate;
-    for(int i=1; i<=6; i++) {
-        for(int j=1; j <= 7; j++) {
+    for(int i =1 ; i <= 6; i++) {
+        for(int j = 1; j <= 7; j++) {
             if(i == 1 && j < startingDay) { // there are unnecessary lines skipped
                 cout<<TAB;
             } else if (dayOfWeek < numOfDays) {
