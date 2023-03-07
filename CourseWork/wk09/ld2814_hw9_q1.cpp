@@ -16,8 +16,9 @@ int main(){
 
     int stringLength = inputText.length();
     int countUpperLowerCaseLetters = (26 * 2); //count of all upper and lowercase letters
-    //int * frequencyArr = new int[countUpperLowerCaseLetters]; //array of int in size of count of all upper and lowercase letters
-    int frequencyArr[countUpperLowerCaseLetters] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    //int frequencyArrDynamic[countUpperLowerCaseLetters] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+    int frequencyArr[52] = {0};
 
     //interate over the string and evaluate each character in linear time O(n)
     for (int i = 0; i < stringLength; i++){
@@ -54,7 +55,8 @@ int main(){
     
    } 
 
-   delete[] frequencyArr; //delete the array although it is not dynamic?
+   //delete[] frequencyArr; //delete the array although it is not dynamic?
+   //delete[] frequencyArrDynamic;
    
    return 0;
 }
