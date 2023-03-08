@@ -1,9 +1,9 @@
-// UPPERCASE LETTERS 65 - 90
-// LOWERCASE LETTERS 97 - 122
 
 #include <iostream>
 #include <string>
 using namespace std;
+
+const int  COUNT_LETTERS = 26; //count of all upper and lowercase letters
 
 int main(){
     int numWords = 1; //declare int to represent word count and instantiate to 1;
@@ -15,10 +15,7 @@ int main(){
     getline(cin, inputText);
 
     int stringLength = inputText.length();
-    int countUpperLowerCaseLetters = (26 * 2); //count of all upper and lowercase letters
-    //int frequencyArrDynamic[countUpperLowerCaseLetters] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-
-    int frequencyArr[52] = {0};
+    int frequencyArr[COUNT_LETTERS] = {0};
 
     //interate over the string and evaluate each character in linear time O(n)
     for (int i = 0; i < stringLength; i++){
@@ -30,33 +27,25 @@ int main(){
                 }
             }
         } else if (inputText[i] >= 65 && inputText[i] <= 90){ //if the chatacter is alphabetical AND uppercase
-           // cout<<"Character "<<inputText[i]<<" is ascii character "<< int(inputText[i])<<" and it belongs in index "<<int(inputText[i]) - (65)<<" right now the value is "<<frequencyArr[int(inputText[i]) - (65)]<<endl;
+            //cout<<"Character "<<inputText[i]<<" is ascii character "<< int(inputText[i] + 32)<<" and it belongs in index "<<int(inputText[i]) + (32) - (97)<<" right now the value is "<<frequencyArr[int(inputText[i]) - (65)]<<endl;
             frequencyArr[int(inputText[i]) - (65)] += 1;
         } else if (inputText[i] >= 97 && inputText[i] <= 122){ //if the character is alphabetical AND lowercase
-            //cout<<"Character "<<inputText[i]<<" is ascii character "<<int(inputText[i])<<" and it belongs in index "<<int(inputText[i]) - (65 + 7)<<" right now the value is "<< frequencyArr[int(inputText[i]) - (65 + 7)]<<endl;
-            frequencyArr[int(inputText[i]) - (65 + 7)] = frequencyArr[int(inputText[i]) - (65 + 7)] + 1;
+            //cout<<"Character "<<inputText[i]<<" is ascii character "<<int(inputText[i])<<" and it belongs in index "<<int(inputText[i]) - (97)<<" right now the value is "<< frequencyArr[int(inputText[i]) - (65 + 7)]<<endl;
+            frequencyArr[int(inputText[i]) - (97)] += 1;
         }
     }
 
    cout<<numWords<<" words total."<<endl;
 
     //interate over int array of letter frequencies with size 52 in linear time O(n) where n - 52
-   for (int i = 0; i < countUpperLowerCaseLetters; i++){
+   for (int i = 0; i < COUNT_LETTERS; i++){
     int letterConversion = i; 
         if (frequencyArr[i] > 0){
-            if (i < 26){
-                letterConversion += 65;
-            } else {
-                letterConversion += (65 + 7);
-            }
-            
+            letterConversion += (97);
             cout<<frequencyArr[i]<<"\t"<<(char)letterConversion<<endl;
-    }
+        }
     
    } 
-
-   //delete[] frequencyArr; //delete the array although it is not dynamic?
-   //delete[] frequencyArrDynamic;
    
    return 0;
 }
