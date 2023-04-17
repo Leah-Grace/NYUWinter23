@@ -15,7 +15,7 @@ int minAtIndexOf(int arr[], int startIndex, int lastIndex){
     cout << "The minimum is at index: " << minIndex << " the value is :" << arr[minIndex] << endl;
     return minIndex;
 }
-
+//pass by reference
 void selectionSort(int (&arr)[ARR_SIZE], int arrSize){
     int last = (arrSize - 1);
     for (int i = 0; i < arrSize; i++){
